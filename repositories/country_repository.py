@@ -41,3 +41,8 @@ def save(country):
     id = results[0]['id']
     country.id = id
     return country
+
+def update(country):
+    sql = "UPDATE countries SET name = %s WHERE id = %s"
+    values = [country.name, country.id]
+    run_sql(sql, values)

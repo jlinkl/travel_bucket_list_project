@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+edit country
+    <form action="/countries/{{ country.id }}" method="post">
+        <label for="country-name">Name</label>
+        <input type="text" name="name" id="country-name" placeholder="{{ country.name }}">
+
+        <button>Edit Country</button>
+    </form>
+{% endblock content %}

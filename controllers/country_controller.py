@@ -28,3 +28,16 @@ def create():
     country_repository.save(country)
 
     return redirect('/countries')
+
+@country_blueprint.route('/countries/<id>/edit')
+def edit(id):
+    country = country_repository.select(id)
+    return render_template('/countries/edit.html', country=country)
+
+@country_blueprint.route('/countries/<id>', methods=['POST'])
+def update(id):
+    name = request.form['name']
+    country = country_repository.select(id)
+    country.name = name
+    country_repository.update(country)
+    return redirect(f'/countries/{id}/view')

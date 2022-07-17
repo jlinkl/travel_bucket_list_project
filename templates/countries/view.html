@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
     <ul>
         <li>
-            {{ country.name }}
+            {{ country.name }} <form action="/countries/{{ country.id }}/edit"> <input type="submit" value="edit"></form>
         </li>
     </ul>
 {% endblock content %}
