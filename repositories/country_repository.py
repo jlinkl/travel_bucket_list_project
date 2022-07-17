@@ -21,7 +21,7 @@ def select(id):
 
     if result:
         row = result[0]
-        country = Country[row['name'], row['id']]
+        country = Country(row['name'], row['id'])
 
     return country
 
@@ -29,9 +29,15 @@ def delete_all():
     sql = "DELETE FROM countries"
     run_sql(sql)
 
+def delete(id):
+    sql = "DELETE FROM countries WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 def save(country):
-    sql = "INSERT INTO countries (name) VALUES (%s) RETURNING id"
+    sql = "INSERT INTO countries (name) VALUES (%s) RETURNING *"
     values = [country.name]
     results = run_sql(sql, values)
-    country.id = results[0]['id']
+    id = results[0]['id']
+    country.id = id
     return country

@@ -1,8 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 <ul>
 {% for country in countries %}
-    <li>{{ country.name }}</li>
+    <li><a href="/countries/{{ country.id }}/view">{{ country.name }}</a></li>
 {% endfor %}
 </ul>
+<form action="/countries/new">
+    <input type="submit" value="Add Country">
+</form>
 {% endblock content %}
 
