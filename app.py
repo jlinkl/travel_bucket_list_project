@@ -1,6 +1,9 @@
 from flask import Flask, render_template
+from controllers.country_controller import country_blueprint
 
 app = Flask(__name__)
+
+app.register_blueprint(country_blueprint)
 
 @app.route('/')
 def home():
