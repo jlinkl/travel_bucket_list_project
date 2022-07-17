@@ -2,6 +2,7 @@
     <ul>
         <li>
             {{ country.name }} <form action="/countries/{{ country.id }}/edit"> <input type="submit" value="edit"></form>
+            <form action="/countries/{{ country.id }}/delete" method="post"> <input type="submit" value="Delete"></form>
         </li>
     </ul>
 {% endblock content %}
