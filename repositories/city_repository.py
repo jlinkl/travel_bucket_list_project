@@ -52,3 +52,8 @@ def select(id):
         city = City(row['name'], country, row['id'])
 
     return city
+
+def delete(id):
+    sql = "DELETE FROM cities WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
