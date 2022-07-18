@@ -6,4 +6,7 @@
         <li><a href="/cities/{{ city.id }}/view">{{ city.name }}</a></li>
     {% endfor %}
  </ul>
+ <form action="/cities/new">
+    <button>Add City</button>
+ </form>
 {% endblock content %}

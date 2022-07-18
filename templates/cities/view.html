@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
-    {{ city.name }}
-    <form action="/cities/{{ city.id }}/delete" method="post">
-        <input type="submit" value="Delete">
-    </form>
+<form action="/cities/{{city.id}}/edit">
+  {{ city.name }} <button>Edit</button>
+</form>
+<form action="/cities/{{ city.id }}/delete" method="post">
+  <input type="submit" value="Delete" />
+</form>
 {% endblock content %}

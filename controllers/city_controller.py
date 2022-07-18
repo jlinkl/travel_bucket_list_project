@@ -35,3 +35,20 @@ def create():
     city_repository.save(city)
 
     return redirect('/cities')
+
+@city_blueprint.route('/cities/<id>/edit')
+def edit(id):
+    city = city_repository.select(id)
+    countries = country_repository.select_all()
+    return render_template('cities/edit.html', city=city, countries=countries)
+
+@city_blueprint.route('/cities/<id>', methods=['POST'])
+def update(id):
+    city_name = request.form['name']
+    country_name = request.form['country']
+    country = country_repository.find_by_name(country_name)
+    city = city_repository.select(id)
+    city.name = city_name
+    city.country = country
+    city_repository.update(city)
+    return redirect(f'/countries/{country.id}/view')    
