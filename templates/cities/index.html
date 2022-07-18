@@ -1,7 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 <ul>
     {% for city in cities %}
-        <li>{{ city.name }} is the capital of {{ city.country.name }}</li>
+        <li><a href="/cities/{{city.id}}/view">{{city.name}}</a></li>
     {% endfor %}
 </ul>
+<form action="/cities/new">
+    <button>Add New City</button>
+</form>
 {% endblock content %}
