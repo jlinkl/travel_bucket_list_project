@@ -1,7 +1,7 @@
 class Attraction:
 
-    def __init__(self, name, id=None, city_id=None):
+    def __init__(self, name, city, id=None):
         self.name = name
+        self.city = city
         self.id = id
-        self.city_id = city_id
         

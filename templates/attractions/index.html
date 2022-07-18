@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<ul>
+    {% for attraction in attractions %}
+        <li><a href="/attractions/{{attraction.id}}/view">{{attraction.name}}</a></li>
+    {% endfor %}
+</ul>
+<form action="/attractions/new">
+    <button>Add New attraction</button>
+</form>
+{% endblock content %}

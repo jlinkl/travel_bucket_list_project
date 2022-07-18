@@ -1,8 +1,10 @@
 import pdb
 from models.country import Country
 from models.city import City
+from models.attraction import Attraction
 import repositories.country_repository as country_repository
 import repositories.city_repository as city_repository
+import repositories.attraction_repository as attraction_repository
 
 country_repository.delete_all()
 
@@ -29,5 +31,17 @@ city_repository.save(city3)
 
 city4 = City("Dublin", country4)
 city_repository.save(city4)
+
+attraction1 = Attraction("Scott Monument", city1)
+attraction_repository.save(attraction1)
+
+attraction2 = Attraction("Big Ben", city2)
+attraction_repository.save(attraction2)
+
+attraction3 = Attraction("Cardiff Castle", city3)
+attraction_repository.save(attraction3)
+
+attraction4 = Attraction("Irish Whiskey Museum", city4)
+attraction_repository.save(attraction4)
 
 pdb.set_trace()

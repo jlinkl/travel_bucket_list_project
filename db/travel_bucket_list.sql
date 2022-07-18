@@ -21,11 +21,11 @@ CREATE TABLE cities (
     country_id INT NOT NULL REFERENCES countries(id) ON DELETE CASCADE
 );
 
--- CREATE TABLE attractions (
---     id SERIAL PRIMARY KEY,
---     name VARCHAR(255),
---     city_id (INT NOT NULL REFERENCES cities(id) ON DELETE CASCADE)
--- );
+CREATE TABLE attractions (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    city_id INT NOT NULL REFERENCES cities(id) ON DELETE CASCADE
+);
 
 -- CREATE TABLE visits (
 --     id SERIAL PRIMARY KEY,

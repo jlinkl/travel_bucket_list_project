@@ -62,3 +62,17 @@ def update(city):
     sql = "UPDATE cities SET (name, country_id) = (%s, %s) WHERE id = %s"
     values = [city.name, city.country.id, city.id]
     run_sql(sql, values)
+
+def find_by_name(name):
+    city = None
+
+    sql = "SELECT * FROM cities WHERE name = %s"
+    values = [name]
+    result = run_sql(sql, values)
+
+    if result:
+        row = result[0]
+        country = country_repository.select(row['id'])
+        city = City(row['name'], country, row['id'])
+
+    return city
