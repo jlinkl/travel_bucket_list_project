@@ -35,6 +35,20 @@ def select_by_country(country):
 
     if results is not None:
         for row in results:
-            city = City(row['name'], country)
+            city = City(row['name'], country, row['id'])
             cities.append(city)
     return cities
+
+def select(id):
+    city = None
+
+    sql = "SELECT * FROM cities WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+
+    if result:
+        row = result[0]
+        country = country_repository.select(row['country_id'])
+        city = City(row['name'], country, row['id'])
+
+    return city

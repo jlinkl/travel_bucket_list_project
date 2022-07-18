@@ -3,7 +3,7 @@
  <form action="/countries/{{ country.id }}/delete" method="post"> <input type="submit" value="Delete"></form>
  <ul>
     {% for city in cities %}
-        <li><a href="/">{{ city.name }}</a></li>
+        <li><a href="/cities/{{ city.id }}/view">{{ city.name }}</a></li>
     {% endfor %}
  </ul>
 {% endblock content %}
