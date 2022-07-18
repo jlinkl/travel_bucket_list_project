@@ -1,6 +1,6 @@
 class City:
 
-    def __init__(self, name, id=None, country_id=None):
+    def __init__(self, name, country, id=None):
         self.name = name
+        self.country = country
         self.id = id
-        self.country_id = country_id

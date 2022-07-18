@@ -2,7 +2,9 @@ from email.errors import CloseBoundaryNotFoundDefect
 from flask import render_template, Blueprint, request, redirect
 
 from models.country import Country
+from models.city import City
 import repositories.country_repository as country_repository
+import repositories.city_repository as city_repository
 
 country_blueprint = Blueprint('countries', __name__)
 
@@ -14,8 +16,10 @@ def countries():
 
 @country_blueprint.route('/countries/<id>/view')
 def show(id):
+    cities = []
     country = country_repository.select(id)
-    return render_template('/countries/view.html', country=country)
+    cities = city_repository.select_by_country(country)
+    return render_template('/countries/view.html', country=country, cities=cities)
 
 @country_blueprint.route('/countries/new')
 def new():
