@@ -56,16 +56,6 @@ def update(id):
 @attraction_blueprint.route('/attractions/visited')
 def get_visited():
     attractions = attraction_repository.select_visited()
-    # cities = []
-    # for attraction in attractions:
-    #     city = city_repository.select(attraction.city.id)
-    #     if city not in cities:
-    #         cities.append(city)
-    # countries = []
-    # for city in cities:
-    #     country = country_repository.select(city.country.id)
-    #     if country not in countries:
-    #         countries.append(country)
     dictionaries = []
     for attraction in attractions:
         city = city_repository.select(attraction.city.id)
@@ -78,6 +68,22 @@ def get_visited():
         dictionaries.append(dictionary)
     
     return render_template('attractions/visited.html', dictionaries=dictionaries)
+
+@attraction_blueprint.route('/attractions/wants_to_visit')
+def get_wants_to_visit():
+    attractions = attraction_repository.select_wants_to_visit()
+    dictionaries = []
+    for attraction in attractions:
+        city = city_repository.select(attraction.city.id)
+        country = country_repository.select(city.country.id)
+        dictionary = {
+            'attraction': attraction.name,
+            'city': city.name,
+            'country': country.name
+        }
+        dictionaries.append(dictionary)
+    
+    return render_template('attractions/wants_to_visit.html', dictionaries=dictionaries)
 
     
 

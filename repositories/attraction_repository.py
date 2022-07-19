@@ -75,3 +75,16 @@ def select_visited():
         visited.append(location)
 
     return visited
+
+def select_wants_to_visit():
+    visited = []
+
+    sql = "SELECT * FROM visits WHERE wants_to_visit = TRUE"
+    results = run_sql(sql)
+
+    for row in results:
+        id = row['attraction_id']
+        location = select(id)
+        visited.append(location)
+
+    return visited
