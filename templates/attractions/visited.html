@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
-{% for dicitionary in dictionaries %}
+{% for dictionary in dictionaries %}
 <ul>
-    <li>{{dicitionary.attraction}} - {{dicitionary.city}} - {{dicitionary.country}}</li>
+    <li><a href="/attractions/{{dictionary.attraction.id}}/view">{{dictionary.attraction.name}}</a> - {{dictionary.city}} - {{dictionary.country}}</li>
 </ul>
 {% endfor %}
 {% endblock content %}

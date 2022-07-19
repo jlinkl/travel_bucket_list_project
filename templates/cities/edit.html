@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <form action="/cities/{{city.id}}" method="post">
     <label for="city-name">Name</label>
-    <input type="text" name="name" id="city-name">
+    <input type="text" name="name" id="city-name" placeholder="{{city.name}}">
     <label for="countries">Choose a Country</label>
     <select name="country" id="countries">
     {% for country in countries %}

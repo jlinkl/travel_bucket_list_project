@@ -1,12 +1,41 @@
 {% extends 'base.html' %} {% block content %}
 <form action="/attractions/{{attraction.id}}" method="post">
     <label for="attraction-name">Name</label>
-    <input type="text" name="name" id="attraction-name">
+    <input type="text" name="name" id="attraction-name" placeholder="{{attraction.name}}">
     <label for="cities">Choose a City</label>
     <select name="city" id="cities">
     {% for city in cities %}
-        <option value="{{ city.name }}">{{city.name}}</option>
+        <option 
+        {% if attraction.city.name == city.name %}
+            selected
+        {% endif %} value="{{ city.name }}">{{city.name}}</option>
     {% endfor %}
+    </select>
+    <label for="visited">Visited: </label>
+    <select name="visited" id="visited">
+        <option 
+        {% if visit.visited %}
+            selected="selected"
+        {% endif %}
+        value="true">True</option>
+        <option 
+        {% if not visit.visited %}
+            selected="selected"
+        {% endif %}
+        value="false">False</option>
+    </select>
+    <label for="marked">Wants to Visit: </label>
+    <select name="marked" id="marked">
+        <option 
+        {% if visit.wants_to_vist %}
+            selected="selected"
+        {% endif %}
+        value="true">True</option>
+        <option 
+        {% if not visit.wants_to_visit %}
+            selected="selected"
+        {% endif %}
+        value="false">False</option>
     </select>
     <button>Submit Edit</button>
 </form> 

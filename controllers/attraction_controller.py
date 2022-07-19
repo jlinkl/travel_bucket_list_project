@@ -2,6 +2,7 @@ from flask import Flask, render_template, Blueprint, redirect, request
 from repositories import city_repository
 from repositories import attraction_repository
 from repositories import country_repository
+from repositories import visit_repository
 from models.attraction import Attraction
 
 attraction_blueprint = Blueprint("attractions", __name__)
@@ -40,17 +41,22 @@ def create():
 def edit(id):
     attraction = attraction_repository.select(id)
     cities = city_repository.select_all()
-    return render_template('attractions/edit.html', attraction=attraction, cities=cities)
+    visit = visit_repository.select_by_attraction_id(id)
+    return render_template('attractions/edit.html', attraction=attraction, cities=cities, visit=visit)
 
 @attraction_blueprint.route('/attractions/<id>', methods=['POST'])
 def update(id):
     attraction_name = request.form['name']
     city_name = request.form['city']
     city = city_repository.find_by_name(city_name)
+    visit = visit_repository.select_by_attraction_id(id)
+    visit.visited = request.form['visited']
+    visit.wants_to_visit = request.form['marked']
     attraction = attraction_repository.select(id)
     attraction.name = attraction_name
     attraction.city = city
     attraction_repository.update(attraction)
+    visit_repository.update(visit)
     return redirect(f'/attractions/{city.id}/view')    
 
 @attraction_blueprint.route('/attractions/visited')
@@ -61,7 +67,7 @@ def get_visited():
         city = city_repository.select(attraction.city.id)
         country = country_repository.select(city.country.id)
         dictionary = {
-            'attraction': attraction.name,
+            'attraction': attraction,
             'city': city.name,
             'country': country.name
         }
@@ -77,7 +83,7 @@ def get_wants_to_visit():
         city = city_repository.select(attraction.city.id)
         country = country_repository.select(city.country.id)
         dictionary = {
-            'attraction': attraction.name,
+            'attraction': attraction,
             'city': city.name,
             'country': country.name
         }
