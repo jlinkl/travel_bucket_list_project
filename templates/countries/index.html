@@ -7,5 +7,12 @@
 <form action="/countries/new">
     <input type="submit" value="Add Country">
 </form>
+
+<form action="/countries/search" method="post">
+    <label for="search" id="search">
+        <input type="text" name="search" id="search">
+    </label>
+    <button>Search</button>
+</form>
 {% endblock content %}
 

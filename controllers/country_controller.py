@@ -50,3 +50,10 @@ def update(id):
 def delete(id):
     country_repository.delete(id)
     return redirect('/countries')
+
+@country_blueprint.route('/countries/search', methods=['POST'])
+def search():
+    name = request.form['search']
+    country = country_repository.find_by_name(name)
+    cities = city_repository.select_by_country(country)
+    return render_template('countries/view.html', country=country, cities=cities)

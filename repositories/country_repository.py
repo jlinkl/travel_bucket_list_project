@@ -47,11 +47,11 @@ def update(country):
     values = [country.name, country.id]
     run_sql(sql, values)
 
-def find_by_name(id):
+def find_by_name(name):
     country = None
 
     sql = "SELECT * FROM countries WHERE name = %s"
-    values = [id]
+    values = [name]
     result = run_sql(sql, values)
 
     if result:

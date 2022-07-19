@@ -50,4 +50,10 @@ def update(id):
     city.name = city_name
     city.country = country
     city_repository.update(city)
-    return redirect(f'/countries/{country.id}/view')    
+    return redirect(f'/countries/{country.id}/view')
+
+@city_blueprint.route('/cities/search', methods=['POST'])
+def search():
+    name = request.form['search']
+    city = city_repository.find_by_name(name)
+    return render_template('cities/view.html', city=city)

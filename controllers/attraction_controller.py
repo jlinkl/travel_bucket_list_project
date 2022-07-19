@@ -51,7 +51,7 @@ def update(id):
     city = city_repository.find_by_name(city_name)
     visit = visit_repository.select_by_attraction_id(id)
     visit.visited = request.form['visited']
-    visit.wants_to_visit = request.form['marked']
+    visit.wants_to_visit = request.form['wants_to_visit']
     attraction = attraction_repository.select(id)
     attraction.name = attraction_name
     attraction.city = city
@@ -90,6 +90,9 @@ def get_wants_to_visit():
         dictionaries.append(dictionary)
     
     return render_template('attractions/wants_to_visit.html', dictionaries=dictionaries)
+
+
+
 
     
 
