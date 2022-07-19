@@ -27,9 +27,10 @@ CREATE TABLE attractions (
     city_id INT NOT NULL REFERENCES cities(id) ON DELETE CASCADE
 );
 
--- CREATE TABLE visits (
---     id SERIAL PRIMARY KEY,
---     user_id INT NOT NULL REFERENCES user(id) ON DELETE CASCADE,
---     attraction_id INT NOT NULL REFERENCES attractions(id) ON DELETE CASCADE,
---     review TEXT
--- );
+CREATE TABLE visits (
+    id SERIAL PRIMARY KEY,
+    -- user_id INT NOT NULL REFERENCES user(id) ON DELETE CASCADE,
+    attraction_id INT NOT NULL REFERENCES attractions(id) ON DELETE CASCADE,
+    visited BOOLEAN,
+    wants_to_visit BOOLEAN
+);

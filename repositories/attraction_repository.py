@@ -62,3 +62,16 @@ def update(attraction):
     sql = "UPDATE attractions SET (name, city_id) = (%s, %s) WHERE id = %s"
     values = [attraction.name, attraction.city.id, attraction.id]
     run_sql(sql, values)
+
+def select_visited():
+    visited = []
+
+    sql = "SELECT * FROM visits WHERE visited = TRUE"
+    results = run_sql(sql)
+
+    for row in results:
+        id = row['attraction_id']
+        location = select(id)
+        visited.append(location)
+
+    return visited

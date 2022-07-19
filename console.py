@@ -2,9 +2,11 @@ import pdb
 from models.country import Country
 from models.city import City
 from models.attraction import Attraction
+from models.visit import Visit
 import repositories.country_repository as country_repository
 import repositories.city_repository as city_repository
 import repositories.attraction_repository as attraction_repository
+import repositories.visit_repository as visit_repository
 
 country_repository.delete_all()
 
@@ -43,5 +45,17 @@ attraction_repository.save(attraction3)
 
 attraction4 = Attraction("Irish Whiskey Museum", city4)
 attraction_repository.save(attraction4)
+
+visit1 = Visit(attraction1, True, False)
+visit_repository.save(visit1)
+
+visit2 = Visit(attraction2, True, False)
+visit_repository.save(visit2)
+
+visit3 = Visit(attraction3, False, True)
+visit_repository.save(visit3)
+
+visit4 = Visit(attraction4, False, True)
+visit_repository.save(visit4)
 
 pdb.set_trace()

@@ -1,0 +1,5 @@
+{% extends 'base.html' %} {% block content %}
+{% for dicitionary in dictionaries %}
+    {{dicitionary.attraction}} - {{dicitionary.city}} - {{dicitionary.country}}
+{% endfor %}
+{% endblock content %}
