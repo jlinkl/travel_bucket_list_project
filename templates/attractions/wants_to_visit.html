@@ -4,6 +4,9 @@
 {% for dictionary in dictionaries %}
 <ul>
     <li><a href="/attractions/{{dictionary.attraction.id}}/view">{{dictionary.attraction.name}}</a> - {{dictionary.city}} - {{dictionary.country}}</li>
+    <form action="/attractions/{{dictionary.attraction.id}}/mark_as_visited" method="post">
+        <button value="{{dictionary.attraction.id}}">Mark as Visited</button>
+    </form>
 </ul>
 {% endfor %}
 </div>

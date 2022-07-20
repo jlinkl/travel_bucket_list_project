@@ -91,6 +91,14 @@ def get_wants_to_visit():
     
     return render_template('attractions/wants_to_visit.html', dictionaries=dictionaries)
 
+@attraction_blueprint.route('/attractions/<id>/mark_as_visited/', methods=['POST'])
+def mark_as_visited(id):
+    visit = visit_repository.select_by_attraction_id(id)
+    visit.visited = True
+    visit.wants_to_visit = False
+    visit_repository.update(visit)
+    return redirect('/attractions/wants_to_visit')
+
 
 
 
