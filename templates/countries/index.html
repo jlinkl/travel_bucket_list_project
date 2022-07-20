@@ -6,8 +6,8 @@
     <li><a href="/countries/{{ country.id }}/view">{{ country.name }}</a></li>
 {% endfor %}
 </ul>
-<form action="/countries/new" class="add-button">
-    <input type="submit" value="Add Country">
+<form action="/countries/new">
+    <button>Add New Country</button>
 </form>
 </div>
 {% endblock content %}
