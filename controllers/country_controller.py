@@ -1,4 +1,3 @@
-from email.errors import CloseBoundaryNotFoundDefect
 from flask import render_template, Blueprint, request, redirect
 
 from models.country import Country

@@ -3,12 +3,11 @@ from models.country import Country
 from models.city import City
 from models.attraction import Attraction
 from models.visit import Visit
-from models.user import User
+
 import repositories.country_repository as country_repository
 import repositories.city_repository as city_repository
 import repositories.attraction_repository as attraction_repository
 import repositories.visit_repository as visit_repository
-import repositories.user_repository as user_repository
 
 country_repository.delete_all()
 
@@ -59,11 +58,5 @@ visit_repository.save(visit3)
 
 visit4 = Visit(attraction4, False, True)
 visit_repository.save(visit4)
-
-# user1 = User("James")
-# user_repository.save(user1)
-
-# user2 = User("Tom")
-# user_repository.save(user2)
 
 pdb.set_trace()

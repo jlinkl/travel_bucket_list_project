@@ -1,14 +1,7 @@
 DROP TABLE visits;
 DROP TABLE attractions;
 DROP TABLE cities;
-DROP TABLE users;
 DROP TABLE countries;
-
-
--- CREATE TABLE users (
---     id SERIAL PRIMARY KEY,
---     name VARCHAR(255)
--- );
 
 CREATE TABLE countries (
     id SERIAL PRIMARY KEY,
@@ -29,7 +22,6 @@ CREATE TABLE attractions (
 
 CREATE TABLE visits (
     id SERIAL PRIMARY KEY,
-    -- user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     attraction_id INT NOT NULL REFERENCES attractions(id) ON DELETE CASCADE,
     visited BOOLEAN,
     wants_to_visit BOOLEAN
