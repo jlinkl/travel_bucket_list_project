@@ -1,7 +1,10 @@
 {% extends 'base.html' %} {% block content %}
+<div class="visited">
+    <h1>Wants to Visit</h1>
 {% for dictionary in dictionaries %}
 <ul>
     <li><a href="/attractions/{{dictionary.attraction.id}}/view">{{dictionary.attraction.name}}</a> - {{dictionary.city}} - {{dictionary.country}}</li>
 </ul>
 {% endfor %}
+</div>
 {% endblock content %}

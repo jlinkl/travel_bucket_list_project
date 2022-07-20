@@ -1,4 +1,6 @@
 {% extends 'base.html' %} {% block content %}
+<div class="wrapper">
+<h1>Cities</h1>
 <ul>
     {% for city in cities %}
         <li><a href="/cities/{{city.id}}/view">{{city.name}}</a></li>
@@ -7,11 +9,5 @@
 <form action="/cities/new">
     <button>Add New City</button>
 </form>
-
-<form action="/cities/search" method="post">
-    <label for="search" id="search">
-        <input type="text" name="search" id="search">
-    </label>
-    <button>Search</button>
-</form>
+</div>
 {% endblock content %}

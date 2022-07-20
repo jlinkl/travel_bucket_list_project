@@ -25,7 +25,7 @@ def delete(id):
 @attraction_blueprint.route('/attractions/new')
 def new():
     cities = city_repository.select_all()
-    return render_template('/cities/new.html', cities=cities)
+    return render_template('/attractions/new.html', cities=cities)
 
 @attraction_blueprint.route('/attractions/new', methods=['POST'])
 def create():

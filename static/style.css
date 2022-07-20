@@ -1,0 +1,189 @@
+:root {
+    --backgoround-color: #feefdd;
+    --text-color: #201e1f;
+    --header-color: #50b2c0;
+}
+
+body {
+    font-family: 'Garamond', 'serif';
+    background-color: var(--backgoround-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-color);
+    color: var(--text-color);
+    height: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header li {
+    float: left;
+}
+
+header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+header li a:hover {
+    background-color: #4caab2;
+}
+
+.wrapper {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper ul {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 2rem;
+}
+
+.wrapper li {
+    padding-right: 1rem;
+}
+
+.wrapper a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: large;
+}
+
+.wrapper a:hover{
+    color: var(--header-color);
+}
+
+.wrapper button {
+    display: inline-block;
+    vertical-align: baseline;
+    border: none;
+    background-color: var(--header-color);
+    padding: 5px 10px;
+}
+
+.wrapper select {
+    border: none;
+    padding: 4px 10px;
+    background-color: var(--header-color);
+}
+
+.wrapper input {
+    border: none;
+    padding: 4px;
+}
+
+.add-button {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.add-button input {
+    background-color: #50b2c0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.search {
+    margin-left: 1rem;
+}
+
+.search input {
+    border: none;
+    padding: 5px 20px;
+}
+
+.search button {
+    font-size: 16px;
+    border: none;
+    background-color: var(--header-color);
+}
+
+.search button:hover {
+    background-color: #4caab2;
+}
+
+.edit {
+    padding-left: 1rem;
+}
+
+.edit h3 {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.edit input {
+    display: inline-block;
+    vertical-align: baseline;
+    border: none;
+    background-color: var(--header-color);
+    padding: 5px 10px;
+}
+
+.edit input:hover {
+    background-color: #4caab2;
+}
+
+.edit form {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.add-button button {
+    display: inline-block;
+    vertical-align: baseline;
+    border: none;
+    background-color: var(--header-color);
+    padding: 5px 10px;
+}
+
+.add-button button:hover {
+    background-color: #4caab2;
+}
+
+.visited {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.visited ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 2rem;
+}
+
+.visited li {
+    padding-right: 1rem;
+}
+
+.visited a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: large;
+}
+
+.visited a:hover{
+    color: var(--header-color);
+}

@@ -1,4 +1,6 @@
 {% extends 'base.html' %} {% block content %}
+<div class="wrapper">
+    <h1>Attractions</h1>
 <ul>
     {% for attraction in attractions %}
         <li><a href="/attractions/{{attraction.id}}/view">{{attraction.name}}</a></li>
@@ -7,4 +9,5 @@
 <form action="/attractions/new">
     <button>Add New attraction</button>
 </form>
+</div>
 {% endblock content %}

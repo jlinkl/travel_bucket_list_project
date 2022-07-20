@@ -1,8 +1,20 @@
 {% extends 'base.html' %} {% block content %}
+<div class="wrapper">
+  <h1>{{city.name}}</h1> 
+  <div class="edit">
 <form action="/cities/{{city.id}}/edit">
-  {{ city.name }} <button>Edit</button>
+  <h3>Edit: {{city.name}}</h3>
+  <input type="submit" value="edit">
 </form>
 <form action="/cities/{{ city.id }}/delete" method="post">
   <input type="submit" value="Delete" />
 </form>
+</div>
+<h2>List of Attractions</h2>
+<ul>
+  {% for attraction in attractions %}
+    <li><a href="/attractions/{{attraction.id}}/view">{{attraction.name}}</a></li>
+  {% endfor %}
+</ul>
+</div>
 {% endblock content %}

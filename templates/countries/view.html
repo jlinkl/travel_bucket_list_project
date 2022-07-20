@@ -1,12 +1,21 @@
 {% extends 'base.html' %} {% block content %}
-{{ country.name }} <form action="/countries/{{ country.id }}/edit"> <input type="submit" value="edit"></form>
+<div class="wrapper">
+<h1>{{ country.name }}</h1> 
+<div class="edit">
+<form action="/countries/{{ country.id }}/edit">
+   <h3>Edit {{ country.name }}</h3>
+   <input type="submit" value="edit">
+</form>
  <form action="/countries/{{ country.id }}/delete" method="post"> <input type="submit" value="Delete"></form>
+</div>
+<h2>List of Cities</h2>
  <ul>
     {% for city in cities %}
-        <li><a href="/cities/{{ city.id }}/view">{{ city.name }}</a></li>
+        <li><a href="/cities/{{ city.id }}/view" class="countries">{{ city.name }}</a></li>
     {% endfor %}
  </ul>
- <form action="/cities/new">
+ <form action="/cities/new" class="add-button">
     <button>Add City</button>
  </form>
+</div>
 {% endblock content %}

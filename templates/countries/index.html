@@ -1,18 +1,14 @@
 {% extends 'base.html' %} {% block content %}
+<div class="wrapper">
+    <h1>Countries</h1>
 <ul>
 {% for country in countries %}
     <li><a href="/countries/{{ country.id }}/view">{{ country.name }}</a></li>
 {% endfor %}
 </ul>
-<form action="/countries/new">
+<form action="/countries/new" class="add-button">
     <input type="submit" value="Add Country">
 </form>
-
-<form action="/countries/search" method="post">
-    <label for="search" id="search">
-        <input type="text" name="search" id="search">
-    </label>
-    <button>Search</button>
-</form>
+</div>
 {% endblock content %}
 

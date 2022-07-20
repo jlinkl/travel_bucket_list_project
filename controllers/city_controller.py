@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Blueprint, redirect, request
 from repositories import city_repository
 from repositories import country_repository
+from repositories import attraction_repository
 from models.city import City
 
 city_blueprint = Blueprint("cities", __name__)
@@ -13,7 +14,8 @@ def cities():
 @city_blueprint.route('/cities/<id>/view')
 def show(id):
     city = city_repository.select(id)
-    return render_template('cities/view.html', city=city)
+    attractions = attraction_repository.select_by_city(city)
+    return render_template('cities/view.html', city=city, attractions=attractions)
 
 @city_blueprint.route('/cities/<id>/delete', methods=['POST'])
 def delete(id):

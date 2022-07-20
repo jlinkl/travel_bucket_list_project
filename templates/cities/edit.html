@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
+<div class="wrapper">
+    <h1>Edit: {{city.name}}</h1>
 <form action="/cities/{{city.id}}" method="post">
-    <label for="city-name">Name</label>
+    <label for="city-name">Name: </label>
     <input type="text" name="name" id="city-name" placeholder="{{city.name}}">
     <label for="countries">Choose a Country</label>
     <select name="country" id="countries">
@@ -10,4 +12,5 @@
     </select>
     <button>Submit Edit</button>
 </form> 
+</div>
 {% endblock content %}
