@@ -1,20 +1,31 @@
 {% extends 'base.html' %} {% block content %}
-    <h1>Travel Bucket List</h1>
-    <br>
-    <h2>Search for a Country</h2>
-    <form action="/countries/search" method="post" class="search">
-        <label for="search" id="search">
-            <input type="text" name="search" id="search" placeholder="Enter a country" class="search-button">
-        </label>
-        <button>Search</button>
-    </form>
-
+<h1>Travel Bucket List</h1>
+<br />
+<h2>Search for a Country</h2>
+<form action="/countries/search" method="post" class="search">
+  <label for="search" id="search">
+    <input
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Enter a country"
+      class="search-button"
+    />
+  </label>
+  <button>Search</button>
+</form>
 
 <h2>Search for a City</h2>
-    <form action="/cities/search" method="post" class="search">
-        <label for="search" id="search">
-            <input type="text" name="search" id="search" placeholder="Enter a city" class="search-button">
-        </label>
-        <button>Search</button>
-    </form>
+<form action="/cities/search" method="post" class="search">
+  <label for="search" id="search">
+    <input
+      type="text"Í
+      name="search"
+      id="search"
+      placeholder="Enter a city"
+      class="search-button"
+    />
+  </label>
+  <button>Search</button>
+</form>
 {% endblock content %}
