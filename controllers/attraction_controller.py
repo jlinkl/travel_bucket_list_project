@@ -31,9 +31,9 @@ def new():
 def create():
     name = request.form['name']
     city_name = request.form['city']
-    city = city_repository.select_by_name(city_name)
+    city = city_repository.find_by_name(city_name)
     attraction = Attraction(name, city)
-    city_repository.save(attraction)
+    attraction_repository.save(attraction)
 
     return redirect('/cities')
 
