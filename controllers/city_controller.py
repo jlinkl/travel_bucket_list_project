@@ -35,7 +35,7 @@ def create():
     city = City(name, country)
     city_repository.save(city)
 
-    return redirect('/cities')
+    return render_template('/cities/view.html', city=city)
 
 @city_blueprint.route('/cities/<id>/edit')
 def edit(id):

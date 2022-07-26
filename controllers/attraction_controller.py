@@ -35,7 +35,7 @@ def create():
     attraction = Attraction(name, city)
     attraction_repository.save(attraction)
 
-    return redirect('/cities')
+    return render_template('/attractions/view.html', attraction=attraction)
 
 @attraction_blueprint.route('/attractions/<id>/edit')
 def edit(id):

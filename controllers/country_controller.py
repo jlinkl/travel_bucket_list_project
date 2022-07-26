@@ -30,7 +30,7 @@ def create():
     country = Country(name)
     country_repository.save(country)
 
-    return redirect('/countries')
+    return render_template('/countries/view.html', country=country)
 
 @country_blueprint.route('/countries/<id>/edit')
 def edit(id):
