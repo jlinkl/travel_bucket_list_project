@@ -58,4 +58,8 @@ def update(id):
 def search():
     name = request.form['search']
     city = city_repository.find_by_name(name)
-    return render_template('cities/view.html', city=city)
+    if city is not None:
+        attractions = attraction_repository.select_by_city(city)
+        return render_template('cities/view.html', city=city, attractions=attractions)
+    else:
+        return render_template('cities/error.html')

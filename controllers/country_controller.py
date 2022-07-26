@@ -54,5 +54,8 @@ def delete(id):
 def search():
     name = request.form['search']
     country = country_repository.find_by_name(name)
-    cities = city_repository.select_by_country(country)
-    return render_template('countries/view.html', country=country, cities=cities)
+    if country is not None:
+        cities = city_repository.select_by_country(country)
+        return render_template('countries/view.html', country=country, cities=cities)
+    else:
+        return render_template('countries/error.html')
