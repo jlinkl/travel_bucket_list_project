@@ -1,6 +1,14 @@
 from db.run_sql import run_sql
 from models.country import Country
 
+# SET countries = []
+# SET sql = "SELECT ALL FROM countries"
+# SET result = run_sql(sql)
+# FOR each row IN results
+#    SET country = Country(row['name'], row['id'])
+#    countries.append(country)
+# RETURN countries
+
 def select_all():
     countries = []
 
